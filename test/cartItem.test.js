@@ -67,7 +67,7 @@ test('constructor_InvalidPrice_ThrowException', () => {
     //Exception is thrown
 })
 
-test('quantity_setQuantityNominalCase_Success', () => {
+test('quantity_setQuantityNominalCase_QuantityValueCorrectlySet', () => {
     //given
     let articleId = 1;
     let name = "Iphone 27";
@@ -101,7 +101,7 @@ test('quantity_setQuantityInvalidValue_ThrowException', () => {
     //Exception is thrown
 })
 
-test('price_setPriceNominalCase_Success', () => {
+test('price_setPriceNominalCase_PriceValueCorrectlySet', () => {
     //given
     let articleId = 1;
     let name = "Iphone 27";
