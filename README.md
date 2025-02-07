@@ -8,21 +8,20 @@ RIA1_TDD_TRAINING est un projet permettant re-entraîner les compétences JS en 
 
 Pré-requis :
 
-* npm 10.4.0 ou ultérieure [official doc](https://docs.npmjs.com/try-the-latest-stable-version-of-npm)
-* node v20.11.0 ou ultérieure [official doc][https://nodejs.org/en/download]
-* git version 2.43.0.windows ou ultérieure [official doc](https://git-scm.com/)
+(pour les versions des dépendances, prendre la denière version LTS)
 
-Note : configuration testée et validée sur l'IDE WebStorm : version 2023.3.2
+* npm [official doc](https://docs.npmjs.com/try-the-latest-stable-version-of-npm)
+* node [official doc][https://nodejs.org/en/download]
+* git [official doc](https://git-scm.com/) (seule la version pour Windows a été testée)
+
+Note : configuration testée et validée sur l'IDE WebStorm : version 2024.1.6
 
 ## Récupérer le code
 
-* Réaliser un fork via les outils en ligne de github
+* Réaliser un [fork via les outils en ligne de github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
 * Cloner le dépôt en local
-* Activer Git-flow
-* Ajouter une référence à votre propre dépôt (pour recevoir des mises à jour ou des correctifs)
-* Réaliser une tentative de mise à jour entre la branche develop distante et la votre
-
-* [How to fork on Github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+* Initialiser Git-flow
+* Ajouter une référence (upstream) au dépôt de l'enseignant. C'est ainsi que les mises à jour vous serons livrées.
 
 Après avoir récupéré le référentiel:
 
@@ -58,7 +57,7 @@ Pour tester tout le projet :
     [INPUT]
     npm run test
     
-    [EXPECTED OUTPUT AT THE END OF THE PROJECT]
+    ["KIND" OF EXPECTED OUTPUT AT THE END OF THE PROJECT]
     > ria1_tdd_training@1.0.0 test
     > jest
 
