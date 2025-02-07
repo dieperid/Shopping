@@ -14,6 +14,11 @@ module.exports = class CartItem {
 
     //region public methods
     constructor(articleId, name, quantity, price) {
+        if (articleId < 1) {
+            throw new InvalidArticleIdException(
+                "Article ID cannot smaller than 1."
+            );
+        }
         this.#articleId = articleId;
         this.#name = name;
 
@@ -35,7 +40,9 @@ module.exports = class CartItem {
 
     set quantity(value) {
         if (value < 1) {
-            throw new InvalidQuantityException("Quantity cannot be negative.");
+            throw new InvalidQuantityException(
+                "Quantity cannot be smaller than 1."
+            );
         }
         this.#quantity = value;
     }
