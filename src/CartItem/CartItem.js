@@ -5,13 +5,19 @@ const InvalidQuantityException = require("./InvalidQuantityException.js");
 const InvalidPriceException = require("./InvalidPriceException.js");
 
 module.exports = class CartItem {
-
     //region private attributes
+    articleId;
+    name;
+    quantity;
+    price;
     //endregion private attributes
 
     //region public methods
     constructor(articleId, name, quantity, price) {
-	throw new Error();
+        this.articleId = articleId;
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
     }
 
     get articleId() {
@@ -39,13 +45,10 @@ module.exports = class CartItem {
     }
 
     get total() {
-        throw new Error();
+        return this.quantity * this.price;
     }
     //endregion public methods
 
     //region private methods
     //endregion private methods
-}
-
-
-
+};
