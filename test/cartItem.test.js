@@ -1,11 +1,3 @@
-/**
- * @file      cart.test.js
- * @brief     This class is designed to test the behaviour of a cartItem.
- * @author    Created by Nicolas.GLASSEY
- * @version   13-02-2022 - original (dedicated to RIA1)
- * @version   08-03-2022 - update
- */
-
 "use strict";
 
 let CartItem =  require('../src/CartItem/CartItem.js');
