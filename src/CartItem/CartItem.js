@@ -34,6 +34,9 @@ module.exports = class CartItem {
     }
 
     set quantity(value) {
+        if (value < 1) {
+            throw new InvalidQuantityException("Quantity cannot be negative.");
+        }
         this.#quantity = value;
     }
 
