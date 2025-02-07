@@ -13,6 +13,7 @@ Pré-requis :
 * npm [official doc](https://docs.npmjs.com/try-the-latest-stable-version-of-npm)
 * node [official doc][https://nodejs.org/en/download]
 * git [official doc](https://git-scm.com/) (seule la version pour Windows a été testée)
+* [plantuml plugin for Jetbrains IDE](https://plugins.jetbrains.com/plugin/7017-plantuml-integration)
 
 Note : configuration testée et validée sur l'IDE WebStorm : version 2024.1.6
 

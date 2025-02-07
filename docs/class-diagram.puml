@@ -1,5 +1,9 @@
 @startuml
 
-class
+skinparam size = 0
+
+class Cart(){}
+
+
 
 @enduml
