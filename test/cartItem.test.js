@@ -5,7 +5,7 @@ const InvalidArticleIdException = require("../src/CartItem/InvalidArticleIdExcep
 const InvalidQuantityException = require("../src/CartItem/InvalidQuantityException.js");
 const InvalidPriceException = require("../src/CartItem/InvalidPriceException.js");
 
-test('allGetters_NominalCase_Success', () => {
+test('constructor_NominalCase_PropertiesGetRightValues', () => {
     //given
     let articleId = 1;
     let name = "Iphone 27";
