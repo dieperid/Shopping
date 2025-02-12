@@ -20,14 +20,19 @@ classDiagram
     }
 
     class Cart {
-        - total : float
+        - items : CartItem[]
 
         + Cart(items : CartItem[])
         + add(items : CartItem[]) void
+        + count(value : bool) int
         + ~get~total() float
+        + ~get~items() int
     }
 
     Cart *-- CartItem
+
+    Error <|-- CartException
+    Error <|-- CartItemException
 
     class CartItemException { }
     class InvalidArticleIdException { }
@@ -38,9 +43,17 @@ classDiagram
     CartItemException <|-- InvalidPriceException
     CartItemException <|-- InvalidQuantityException
 
-    Error <|-- CartItemException
+    class CartException { }
+    class EmptyCartException { }
+    class UpdateCartException { }
+
+    CartException <|-- EmptyCartException
+    CartException <|-- UpdateCartException
 
     InvalidArticleIdException <.. CartItem : throws
     InvalidPriceException <.. CartItem : throws
     InvalidQuantityException <.. CartItem : throws
+
+    EmptyCartException <.. Cart : throws
+    UpdateCartException <.. Cart : throws
 ```
