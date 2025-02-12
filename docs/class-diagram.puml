@@ -4,8 +4,8 @@ left to right direction
 skinparam classAttributeIconSize 0
 
 'Classes declaration
-class Cart{
-   +Cart(articleId: int, name: string, quantity: int, price: float)
+class CartItem{
+   +CartItem(articleId: int, name: string, quantity: int, price: float)
    +<get,set>quantity():int
    +<get>name():string
    +<get>price():float
