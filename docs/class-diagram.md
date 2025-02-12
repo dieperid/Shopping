@@ -20,11 +20,13 @@ classDiagram
     }
 
     class Cart {
-        - total : float
+        - items : CartItem[]
 
         + Cart(items : CartItem[])
         + add(items : CartItem[]) void
+        + count(value : bool) int
         + ~get~total() float
+        + ~get~items() int
     }
 
     Cart *-- CartItem
