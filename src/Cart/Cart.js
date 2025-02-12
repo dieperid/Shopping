@@ -23,15 +23,19 @@ module.exports = class CartItem {
         }
     }
 
-    count(items) {
-        let count = 0;
-
+    count(value) {
         if (this.#items == null || this.#items.length <= 0) {
             throw new EmptyCartException("Cart can't be empty");
         }
 
-        for (let item of this.#items) {
-            count += item.quantity;
+        let count = 0;
+
+        if (value) {
+            count = this.#items.length;
+        } else {
+            for (let item of this.#items) {
+                count += item.quantity;
+            }
         }
 
         return count;
