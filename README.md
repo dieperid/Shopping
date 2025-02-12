@@ -8,43 +8,43 @@ RIA1_TDD_TRAINING est un projet permettant re-entraîner les compétences JS en 
 
 Pré-requis :
 
-* npm 10.4.0 ou ultérieure [official doc](https://docs.npmjs.com/try-the-latest-stable-version-of-npm)
-* node v20.11.0 ou ultérieure [official doc][https://nodejs.org/en/download]
-* git version 2.43.0.windows ou ultérieure [official doc](https://git-scm.com/)
+(pour les versions des dépendances, prendre la denière version LTS)
 
-Note : configuration testée et validée sur l'IDE WebStorm : version 2023.3.2
+-   npm [official doc](https://docs.npmjs.com/try-the-latest-stable-version-of-npm)
+-   node [official doc][https://nodejs.org/en/download]
+-   git [official doc](https://git-scm.com/) (seule la version pour Windows a été testée)
+-   [plantuml plugin for Jetbrains IDE](https://plugins.jetbrains.com/plugin/7017-plantuml-integration)
+
+Note : configuration testée et validée sur l'IDE WebStorm : version 2024.1.6
 
 ## Récupérer le code
 
-* Réaliser un fork via les outils en ligne de github
-* Cloner le dépôt en local
-* Activer Git-flow
-* Ajouter une référence à votre propre dépôt (pour recevoir des mises à jour ou des correctifs)
-* Réaliser une tentative de mise à jour entre la branche develop distante et la votre
-
-* [How to fork on Github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+-   Réaliser un [fork via les outils en ligne de github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+-   Cloner le dépôt en local
+-   Initialiser Git-flow
+-   Ajouter une référence (upstream) au dépôt de l'enseignant. C'est ainsi que les mises à jour vous serons livrées.
 
 Après avoir récupéré le référentiel:
 
 ```
   [INPUT]
   npm install
-  
+
   [OUTPUT]
 
   up to date, audited 288 packages in 964ms
-  
+
   30 packages are looking for funding
     run `npm fund` for details
-  
+
   found 0 vulnerabilities
 ```
 
 ## Configuration de l'IDE Webstorm pour les tests, le debug et la couverture du code
 
-* [Jest](https://www.jetbrains.com/help/webstorm/running-unit-tests-on-jest.html#ws_node_test_docker)
-* [Debug Test](https://www.jetbrains.com/help/webstorm/running-unit-tests-on-jest.html#ws_jest_debugging_tests)
-* [Code Coverage](https://www.jetbrains.com/help/webstorm/running-unit-tests-on-jest.html#ws_jest_code_coverage)
+-   [Jest](https://www.jetbrains.com/help/webstorm/running-unit-tests-on-jest.html#ws_node_test_docker)
+-   [Debug Test](https://www.jetbrains.com/help/webstorm/running-unit-tests-on-jest.html#ws_jest_debugging_tests)
+-   [Code Coverage](https://www.jetbrains.com/help/webstorm/running-unit-tests-on-jest.html#ws_jest_code_coverage)
 
 ```
 In Preferences | Languages & Frameworks | JavaScript | Libraries, press Download..., select 'jest' from the list of available stubs, press Download and Install
@@ -57,14 +57,14 @@ Pour tester tout le projet :
 ```bash
     [INPUT]
     npm run test
-    
-    [EXPECTED OUTPUT AT THE END OF THE PROJECT]
+
+    ["KIND" OF EXPECTED OUTPUT AT THE END OF THE PROJECT]
     > ria1_tdd_training@1.0.0 test
     > jest
 
     PASS  src/test/cart.test.js
     PASS  src/test/cartItem.test.js
-    
+
     Test Suites: 2 passed, 2 total
     Tests:       18 passed, 18 total
     Snapshots:   0 total
@@ -76,14 +76,14 @@ Pour lancer les tests d'un seul fichier :
 
 ```bash
     npm test [pathToTestFile.js]
-    
+
     [INPUT]
     npm run test test/cart.test.js
-    
+
     [OUTPUT]
     > ria1_tdd_training@1.0.0 test
     > jest test/cart.test.js
-    
+
      PASS  src/test/cart.test.js
       √ items_NominalCase_GetItems (3 ms)
       √ items_EmptyCart_ThrowException (10 ms)
@@ -95,7 +95,7 @@ Pour lancer les tests d'un seul fichier :
       √ count_EmptyCart_ThrowException
       √ add_EmptyCartAddFirstSingleCartItem_GetsUpdatedNumberOfItems
       √ add_EmptyCartEmptyItemsToAdd_ThrowException (2 ms)
-    
+
     Test Suites: 1 passed, 1 total
     Tests:       10 passed, 10 total
     Snapshots:   0 total
@@ -106,9 +106,8 @@ Pour lancer les tests d'un seul fichier :
 Pour lancer les tests d'un seul fichier :
 
 ```
-    npm test [pathToTestFile.js]  
+    npm test [pathToTestFile.js]
 ```
-
 
 Le résultat a obtenir en début de projet :
 
@@ -124,20 +123,23 @@ Pour tester une seule classe :
 
 Voici des sources qui vous aideront à vous lancer :
 
-* [Les classes en Java Script](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
-  * [Les accesseurs en Java Script](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/get)
-  * [Les mutateurs en Java Script](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/set)
-  * [Exception en Java Script](https://rollbar.com/guides/javascript/how-to-throw-exceptions-in-javascript/#)
-* [Premier pas avec Jest](https://jestjs.io/docs/getting-started)
-  * [Les comparateurs](https://jestjs.io/fr/docs/expect)
-  * [Les exceptions](https://jestjs.io/docs/using-matchers#exceptions)
-* [Convention de nommmage en Java Script](https://developer.mozilla.org/fr/docs/MDN/Guidelines/Code_guidelines/JavaScript)
+-   [Les classes en Java Script](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
+    -   [Les accesseurs en Java Script](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/get)
+    -   [Les mutateurs en Java Script](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/set)
+    -   [Exception en Java Script](https://rollbar.com/guides/javascript/how-to-throw-exceptions-in-javascript/#)
+-   [Premier pas avec Jest](https://jestjs.io/docs/getting-started)
+    -   [Les comparateurs](https://jestjs.io/fr/docs/expect)
+    -   [Les exceptions](https://jestjs.io/docs/using-matchers#exceptions)
+-   [Convention de nommmage en Java Script](https://developer.mozilla.org/fr/docs/MDN/Guidelines/Code_guidelines/JavaScript)
 
 ## Contributing
+
 Vos retours sont les bienvenus. Utilisez les issues.
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
 
-## Source 
+## Source
+
 [Make a readme](https://www.makeareadme.com/)

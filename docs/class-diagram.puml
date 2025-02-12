@@ -1,0 +1,31 @@
+@startuml
+
+left to right direction
+skinparam classAttributeIconSize 0
+
+'Classes declaration
+class Cart{
+   +Cart(articleId: int, name: string, quantity: int, price: float)
+   +<get,set>quantity():int
+   +<get>name():string
+   +<get>price():float
+}
+
+class Error{}
+class CartItemException{}
+class InvalidArticleIdException{}
+class InvalidQuantityException{}
+class InvalidPriceException{}
+
+'Relations
+Cart --> InvalidArticleIdException
+Cart --> InvalidQuantityException : throws
+Cart --> InvalidPriceException : throws
+
+'Exception inheritance
+InvalidArticleIdException -|> CartItemException
+InvalidPriceException -|> CartItemException
+InvalidQuantityException -|> CartItemException
+CartItemException -|> Error
+
+@enduml

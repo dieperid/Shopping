@@ -1,11 +1,3 @@
-/**
- * @file      cart.test.js
- * @brief     This class is designed to test the behaviour of a cartItem.
- * @author    Created by Nicolas.GLASSEY
- * @version   13-02-2022 - original (dedicated to RIA1)
- * @version   08-03-2022 - update
- */
-
 "use strict";
 
 let CartItem = require("../src/CartItem/CartItem.js");
@@ -13,7 +5,7 @@ const InvalidArticleIdException = require("../src/CartItem/InvalidArticleIdExcep
 const InvalidQuantityException = require("../src/CartItem/InvalidQuantityException.js");
 const InvalidPriceException = require("../src/CartItem/InvalidPriceException.js");
 
-test("allGetters_NominalCase_Success", () => {
+test("constructor_NominalCase_PropertiesGetRightValues", () => {
     //given
     let articleId = 1;
     let name = "Iphone 27";
@@ -81,7 +73,7 @@ test("constructor_InvalidPrice_ThrowException", () => {
     //Exception is thrown
 });
 
-test("quantity_setQuantityNominalCase_Success", () => {
+test("quantity_setQuantityNominalCase_QuantityValueCorrectlySet", () => {
     //given
     let articleId = 1;
     let name = "Iphone 27";
@@ -117,7 +109,7 @@ test("quantity_setQuantityInvalidValue_ThrowException", () => {
     //Exception is thrown
 });
 
-test("price_setPriceNominalCase_Success", () => {
+test("price_setPriceNominalCase_PriceValueCorrectlySet", () => {
     //given
     let articleId = 1;
     let name = "Iphone 27";
