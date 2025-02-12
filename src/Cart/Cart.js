@@ -24,9 +24,9 @@ module.exports = class CartItem {
     }
 
     get total() {
-        let sum;
+        let sum = 0;
 
-        if (this.#items == null || this.#items <= 0) {
+        if (this.#items == null || this.#items.length <= 0) {
             throw new EmptyCartException("Cart can't be empty");
         }
 
