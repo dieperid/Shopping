@@ -29,6 +29,9 @@ classDiagram
 
     Cart *-- CartItem
 
+    Error <|-- CartException
+    Error <|-- CartItemException
+
     class CartItemException { }
     class InvalidArticleIdException { }
     class InvalidPriceException { }
@@ -38,9 +41,17 @@ classDiagram
     CartItemException <|-- InvalidPriceException
     CartItemException <|-- InvalidQuantityException
 
-    Error <|-- CartItemException
+    class CartException { }
+    class EmptyCartException { }
+    class UpdateCartException { }
+
+    CartException <|-- EmptyCartException
+    CartException <|-- UpdateCartException
 
     InvalidArticleIdException <.. CartItem : throws
     InvalidPriceException <.. CartItem : throws
     InvalidQuantityException <.. CartItem : throws
+
+    EmptyCartException <.. Cart : throws
+    UpdateCartException <.. Cart : throws
 ```
