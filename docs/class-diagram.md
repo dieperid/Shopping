@@ -11,7 +11,6 @@ classDiagram
 
         + CartItem(articleId : int, name : string, quantity : int, price : float)
         + ~get~articleId() int
-        + ~get~name() string
         + ~get~quantity() int
         + ~get~price() float
         + ~get~total() float
