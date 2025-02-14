@@ -19,7 +19,7 @@ classDiagram
     }
 
     class Cart {
-        - items : CartItem[]
+        - items : CartItem[] = null
 
         + Cart(items : CartItem[])
         + add(items : CartItem[]) void
