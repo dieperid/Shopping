@@ -29,7 +29,7 @@ classDiagram
         + ~get~items() int
     }
 
-    Cart *-- CartItem
+    Cart o-- CartItem
 
     Error <|-- CartException
     Error <|-- CartItemException
