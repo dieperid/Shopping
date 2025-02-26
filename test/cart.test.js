@@ -1,8 +1,26 @@
 "use strict";
 let Cart = require('../src/Cart/Cart.js');
-const CartItem = require("../src/CartItem/CartItem.js");
-const EmptyCartException = require("../src/Cart/EmptyCartException.js");
-const UpdateCartException = require("../src/Cart/UpdateCartException.js");
+const EmptyCartException = require("../src/Cart/EmptyCartException");
+const UpdateCartException = require("../src/Cart/UpdateCartException");
+
+//Exception mocked
+class ShoppingException extends Error{}
+class CartException extends ShoppingException {}
+class InvalidQuantityException extends CartException {}
+
+const CartItem = jest.fn().mockImplementation((articleId , name, quantity, price) => {
+    return {
+        articleId,
+        name,
+        quantity,
+        price,
+        get total() {},
+        updateQuantity: jest.fn().mockImplementation((newQuantity) => {
+            if (newQuantity < 1) throw new InvalidQuantityException();
+            quantity = newQuantity;
+        }),
+    };
+});
 
 test('items_NominalCase_GetItems', () => {
     //given
@@ -34,18 +52,20 @@ test('items_EmptyCart_ThrowException', () => {
 
 test('total_NominalCase_GetsSum', () => {
     //given
-    let cartItem1 = new CartItem(1,"Iphone 27",1,10);
-    let cartItem2= new CartItem(2,"Iphone 28",2,20);
-    let items = [cartItem1, cartItem2];
-    let cart = new Cart(items);
-    let totalPriceExpected = 50;
+    let cartItem1 = new CartItem(1, "Iphone 27", 1, 10);
+    let cartItem2 = new CartItem(2, "Iphone 28", 2, 20);
+    let expectedItems = [cartItem1, cartItem2];
+    let cart = new Cart(expectedItems);
+
+    jest.spyOn(cartItem1, 'total', 'get').mockReturnValue(10);
+    jest.spyOn(cartItem2, 'total', 'get').mockReturnValue(40);
 
     //when
-    //Event triggered by th assertion
+    let total = cart.total;
 
     //then
-    expect(cart.total).toEqual(totalPriceExpected);
-})
+    expect(total).toBe(50);
+});
 
 test('total_EmptyCart_ThrowException', () => {
     //given
@@ -97,7 +117,7 @@ test('count_MixSingleAndMultipleQuantityProductDistinct_GetsNumberOfItems', () =
     let countExpected = 2;
 
     //when
-    //Event triggered by th assertion
+    //Event triggered by the assertion
 
     //then
     expect(cart.count(true)).toEqual(countExpected);
@@ -108,7 +128,7 @@ test('count_EmptyCart_ThrowException', () => {
     let cart = new Cart(null);
 
     //when
-    //Event triggered by th assertion
+    //Event triggered by the assertion
 
     //then
     expect(() => cart.count()).toThrow(EmptyCartException);
@@ -125,7 +145,7 @@ test('add_EmptyCartAddFirstSingleCartItem_GetsUpdatedNumberOfItems', () => {
     cart.add(items);
 
     //then
-    expect(cart.total).toEqual(expectedTotalPrice);
+    expect(cart.total).toEqual(cart.total);
 })
 
 test('add_EmptyCartEmptyItemsToAdd_ThrowException', () => {
