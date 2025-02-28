@@ -160,3 +160,17 @@ test("add_EmptyCartEmptyItemsToAdd_ThrowException", () => {
     //then
     //Exception is thrown
 });
+
+test("add_NotEmptyCartAddCartItem_GetsUpdatedNumberOfItems", () => {
+    //given
+    let cartItem1 = new CartItem(1, "Iphone 27", 1, 10);
+    let cart = new Cart([cartItem1]);
+    let cartItem2 = new CartItem(2, "Iphone 28", 2, 20);
+    let expectedNumberOfCartItem = 2;
+
+    //when
+    cart.add([cartItem2]);
+
+    //then
+    expect(cart.count()).toEqual(expectedNumberOfCartItem);
+});
