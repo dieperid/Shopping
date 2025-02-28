@@ -172,5 +172,5 @@ test("add_NotEmptyCartAddCartItem_GetsUpdatedNumberOfItems", () => {
     cart.add([cartItem2]);
 
     //then
-    expect(cart.count()).toEqual(expectedNumberOfCartItem);
+    expect(cart.items.length).toEqual(expectedNumberOfCartItem);
 });
