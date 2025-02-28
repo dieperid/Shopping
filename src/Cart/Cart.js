@@ -23,7 +23,11 @@ module.exports = class CartItem {
             );
         }
 
-        this.#items = items;
+        if (this.#items) {
+            this.#items.push(...items);
+        } else {
+            this.#items = items;
+        }
     }
 
     count(value) {
